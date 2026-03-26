@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chalet Clos Buisson — Serre-Chevalier</title>
+  <meta name="description" content="Chalet haut de gamme à Chantemerle, Serre-Chevalier. 14 personnes, 6 chambres, vue imprenable sur les pistes, bain à remous." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:     #F5F0E8;
+      --warm-white:#FAF8F3;
+      --pine:      #2C3E2D;
+      --pine-light:#3D5C3E;
+      --gold:      #B8935A;
+      --gold-light:#D4AF7A;
+      --charcoal:  #2A2420;
+      --stone:     #8C7B6B;
+      --snow:      #EEF2F5;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--warm-white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      font-weight: 300;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ──────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      transition: background .4s, backdrop-filter .4s, box-shadow .4s;
+    }
+    nav.scrolled {
+      background: rgba(245,240,232,.94);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(0,0,0,.08);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      color: #fff;
+      transition: color .4s;
+    }
+    nav.scrolled .nav-logo { color: var(--pine); }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+      font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      transition: color .3s;
+    }
+    nav.scrolled .nav-links a { color: var(--stone); }
+    .nav-links a:hover { color: var(--gold-light); }
+    nav.scrolled .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+      padding: .55rem 1.4rem;
+      border: 1px solid rgba(255,255,255,.5);
+      color: #fff;
+      transition: all .3s;
+    }
+    nav.scrolled .nav-cta {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff !important;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    #hero {
+      position: relative; height: 100vh; min-height: 640px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(160deg, rgba(44,62,45,.25) 0%, rgba(44,62,45,.65) 100%),
+        url('https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/aa9e6a61-5a0c-45d6-8f12-5c5c4b16c713.jpeg?im_w=1440') center/cover no-repeat;
+      transform: scale(1.04);
+      animation: heroZoom 14s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.00); }
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      padding: 0 4rem 6rem;
+      max-width: 680px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold-light);
+      border-left: 2px solid var(--gold-light);
+      padding-left: .8rem;
+      margin-bottom: 1.4rem;
+      animation: fadeUp .8s .2s both;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 1.4rem;
+      animation: fadeUp .8s .4s both;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-subtitle {
+      font-size: .9rem; letter-spacing: .08em;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 2.4rem;
+      animation: fadeUp .8s .6s both;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp .8s .8s both;
+    }
+    .btn-primary {
+      padding: .85rem 2.2rem;
+      background: var(--gold);
+      color: #fff;
+      font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+      transition: background .3s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      padding: .85rem 2.2rem;
+      border: 1px solid rgba(255,255,255,.5);
+      color: rgba(255,255,255,.9);
+      font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+      transition: all .3s;
+    }
+    .btn-outline:hover { border-color: #fff; color: #fff; transform: translateY(-2px); }
+
+    /* badges hero */
+    .hero-badges {
+      position: absolute; bottom: 5rem; right: 4rem; z-index: 1;
+      display: flex; flex-direction: column; gap: .8rem; align-items: flex-end;
+      animation: fadeLeft .8s 1s both;
+    }
+    .badge {
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: .6rem 1rem;
+      font-size: .75rem; letter-spacing: .06em;
+      color: #fff;
+    }
+    .badge-icon { font-size: 1.1rem; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* scroll indicator */
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      z-index: 1; display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      color: rgba(255,255,255,.5); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+      animation: fadeUp 1s 1.2s both;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ─── SECTION BASE ────────────────────────────────── */
+    section { padding: 6rem 4rem; }
+    .section-eyebrow {
+      font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--pine);
+    }
+    .section-title em { font-style: italic; }
+    .divider {
+      width: 48px; height: 1px;
+      background: var(--gold);
+      margin: 1.6rem 0;
+    }
+    .section-body {
+      font-size: .95rem; line-height: 1.85;
+      color: var(--stone);
+      max-width: 600px;
+    }
+
+    /* ─── KEY NUMBERS ────────────────────────────────── */
+    #numbers {
+      background: var(--pine);
+      padding: 4rem;
+    }
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .number-item {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+      transition: background .3s;
+    }
+    .number-item:last-child { border-right: none; }
+    .number-item:hover { background: rgba(255,255,255,.04); }
+    .number-value {
+      font-family: var(--font-display);
+      font-size: 3.4rem; font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .number-unit {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--gold);
+    }
+    .number-label {
+      font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-top: .8rem;
+    }
+
+    /* ─── GALLERY ────────────────────────────────────── */
+    #gallery {
+      padding: 6rem 4rem;
+      background: var(--cream);
+    }
+    .gallery-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: 12px;
+    }
+    .gallery-item { overflow: hidden; cursor: pointer; }
+    .gallery-item img {
+      height: 100%; transition: transform .6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .g1 { grid-column: 1/6; grid-row: 1/2; }
+    .g2 { grid-column: 6/9; grid-row: 1/2; }
+    .g3 { grid-column: 9/13; grid-row: 1/3; }
+    .g4 { grid-column: 1/5; grid-row: 2/3; }
+    .g5 { grid-column: 5/9; grid-row: 2/3; }
+
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,.92);
+      align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 88vh; object-fit: contain; }
+    .lightbox-close {
+      position: absolute; top: 2rem; right: 2rem;
+      color: rgba(255,255,255,.7); font-size: 2rem; cursor: pointer;
+      font-family: var(--font-display); font-weight: 300;
+      transition: color .2s;
+    }
+    .lightbox-close:hover { color: #fff; }
+    .lb-prev, .lb-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      color: rgba(255,255,255,.6); font-size: 2.5rem; cursor: pointer;
+      padding: 1rem; transition: color .2s;
+      font-family: var(--font-display);
+      background: none; border: none;
+    }
+    .lb-prev:hover, .lb-next:hover { color: #fff; }
+    .lb-prev { left: 2rem; }
+    .lb-next { right: 2rem; }
+
+    /* ─── ESPACES ─────────────────────────────────────── */
+    #spaces {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .space-card {
+      position: relative; overflow: hidden;
+      height: 600px;
+      cursor: pointer;
+    }
+    .space-card img { height: 100%; transition: transform .7s ease; }
+    .space-card:hover img { transform: scale(1.05); }
+    .space-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(44,62,45,.85) 0%, transparent 55%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 3rem;
+      transition: background .4s;
+    }
+    .space-card:hover .space-overlay {
+      background: linear-gradient(to top, rgba(44,62,45,.92) 0%, rgba(44,62,45,.2) 100%);
+    }
+    .space-tag {
+      font-size: .65rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: .6rem;
+    }
+    .space-name {
+      font-family: var(--font-display);
+      font-size: 2.4rem; font-weight: 300;
+      color: #fff; line-height: 1.1;
+    }
+    .space-desc {
+      font-size: .85rem; line-height: 1.7;
+      color: rgba(255,255,255,.7);
+      max-height: 0; overflow: hidden;
+      transition: max-height .5s ease, margin .3s;
+    }
+    .space-card:hover .space-desc {
+      max-height: 120px;
+      margin-top: 1rem;
+    }
+    .space-features {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin-top: .8rem;
+    }
+    .sf-chip {
+      font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .8rem;
+      border: 1px solid rgba(255,255,255,.25);
+      color: rgba(255,255,255,.75);
+    }
+
+    /* ─── AMENITIES ───────────────────────────────────── */
+    #amenities {
+      background: var(--warm-white);
+    }
+    .amenities-layout {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem;
+      align-items: center;
+    }
+    .amenities-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .amenity-item {
+      display: flex; align-items: flex-start; gap: .9rem;
+    }
+    .amenity-icon {
+      width: 36px; height: 36px; min-width: 36px;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .amenity-text {
+      font-size: .82rem; line-height: 1.5; color: var(--stone);
+    }
+    .amenity-text strong {
+      display: block; color: var(--charcoal); font-weight: 500;
+      font-size: .85rem; margin-bottom: .15rem;
+    }
+    .amenities-img {
+      position: relative; height: 520px;
+    }
+    .amenities-img img { height: 100%; }
+    .amenities-img::before {
+      content: '';
+      position: absolute; top: -20px; right: -20px;
+      width: 60%; height: 60%;
+      border: 1px solid var(--gold-light);
+      z-index: -1;
+    }
+
+    /* ─── ROOMS ───────────────────────────────────────── */
+    #rooms {
+      background: var(--pine);
+      padding: 6rem 4rem;
+    }
+    #rooms .section-title { color: var(--cream); }
+    #rooms .section-eyebrow { color: var(--gold-light); }
+    #rooms .divider { background: var(--gold-light); }
+    #rooms .section-body { color: rgba(255,255,255,.5); }
+    .rooms-slider {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .room-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      overflow: hidden;
+      transition: transform .3s, border-color .3s;
+    }
+    .room-card:hover { transform: translateY(-6px); border-color: rgba(184,147,90,.4); }
+    .room-img { height: 200px; overflow: hidden; }
+    .room-img img { height: 100%; transition: transform .5s; }
+    .room-card:hover .room-img img { transform: scale(1.06); }
+    .room-info { padding: 1.5rem; }
+    .room-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 300;
+      color: #fff; margin-bottom: .4rem;
+    }
+    .room-beds {
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* ─── REVIEWS ─────────────────────────────────────── */
+    #reviews {
+      background: var(--cream);
+    }
+    .reviews-header-grid {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: flex-end; margin-bottom: 3rem;
+    }
+    .stars-display {
+      display: flex; align-items: center; gap: .6rem;
+      margin-bottom: .8rem;
+    }
+    .stars { color: var(--gold); font-size: 1.3rem; letter-spacing: .1em; }
+    .rating-num {
+      font-family: var(--font-display);
+      font-size: 1.2rem; color: var(--pine);
+    }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .review-card {
+      background: #fff;
+      padding: 2rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color .3s, transform .3s;
+    }
+    .review-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .review-quote {
+      font-family: var(--font-display);
+      font-size: 3rem; line-height: 1;
+      color: var(--gold-light); margin-bottom: .5rem;
+    }
+    .review-text {
+      font-size: .88rem; line-height: 1.8; color: var(--stone);
+      margin-bottom: 1.5rem;
+    }
+    .review-author {
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--charcoal); font-weight: 500;
+    }
+    .review-date {
+      font-size: .72rem; color: var(--stone); margin-top: .2rem;
+    }
+    .ratings-breakdown {
+      margin-top: 3rem;
+      display: grid; grid-template-columns: repeat(6,1fr); gap: 1rem;
+    }
+    .rb-item { text-align: center; }
+    .rb-bar-wrap {
+      height: 4px; background: rgba(0,0,0,.1); margin: .6rem 0;
+    }
+    .rb-bar {
+      height: 100%; background: var(--gold);
+      transform-origin: left;
+      animation: barGrow 1s ease both;
+    }
+    @keyframes barGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+    .rb-val {
+      font-family: var(--font-display);
+      font-size: 1.6rem; color: var(--pine);
+    }
+    .rb-label {
+      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    /* ─── LOCATION ─────────────────────────────────────── */
+    #location {
+      background: var(--warm-white);
+    }
+    .location-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center;
+    }
+    .location-map {
+      height: 420px; background: var(--snow);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .location-map iframe {
+      width: 100%; height: 100%;
+      border: 0; filter: sepia(20%) contrast(1.1);
+    }
+    .distance-list {
+      display: flex; flex-direction: column; gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .dist-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .dist-label {
+      display: flex; align-items: center; gap: .8rem;
+      font-size: .85rem; color: var(--stone);
+    }
+    .dist-icon { font-size: 1.1rem; }
+    .dist-val {
+      font-family: var(--font-display);
+      font-size: 1rem; color: var(--pine); font-weight: 400;
+    }
+
+    /* ─── WELCOME BOOK ────────────────────────────────── */
+    #welcome-book {
+      background: var(--pine);
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .wb-image {
+      position: relative; overflow: hidden;
+      min-height: 480px;
+    }
+    .wb-image img { height: 100%; min-height: 480px; }
+    .wb-content {
+      padding: 5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .wb-content .section-eyebrow { color: var(--gold-light); }
+    .wb-content .section-title { color: var(--cream); }
+    .wb-content .divider { background: var(--gold); }
+    .wb-content .section-body { color: rgba(255,255,255,.55); }
+    .wb-features {
+      display: flex; flex-direction: column; gap: .8rem;
+      margin: 2rem 0;
+    }
+    .wb-feat {
+      display: flex; align-items: center; gap: .8rem;
+      font-size: .82rem; color: rgba(255,255,255,.65);
+    }
+    .wb-feat::before {
+      content: ''; display: block;
+      width: 6px; height: 6px;
+      background: var(--gold-light);
+      flex-shrink: 0;
+    }
+    .wb-upload-area {
+      margin-top: 2rem;
+      border: 1px dashed rgba(184,147,90,.4);
+      padding: 2rem;
+      text-align: center;
+      transition: border-color .3s, background .3s;
+      cursor: pointer;
+    }
+    .wb-upload-area:hover, .wb-upload-area.drag-over {
+      border-color: var(--gold);
+      background: rgba(184,147,90,.06);
+    }
+    .wb-upload-icon { font-size: 2rem; margin-bottom: .6rem; }
+    .wb-upload-text {
+      font-size: .8rem; letter-spacing: .08em;
+      color: rgba(255,255,255,.5);
+      margin-bottom: .4rem;
+    }
+    .wb-upload-sub { font-size: .72rem; color: rgba(255,255,255,.3); }
+    .wb-download-btn {
+      display: flex; align-items: center; justify-content: center; gap: .8rem;
+      margin-top: 1.2rem;
+      padding: .9rem 2rem;
+      background: var(--gold);
+      color: #fff;
+      font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+      transition: background .3s;
+      cursor: pointer;
+    }
+    .wb-download-btn:hover { background: var(--gold-light); }
+    .wb-filename {
+      font-size: .78rem; color: var(--gold-light);
+      margin-top: .8rem; text-align: center;
+    }
+
+    /* ─── CONTACT / BOOKING ──────────────────────────── */
+    #booking {
+      background: var(--cream);
+      text-align: center;
+      padding: 7rem 4rem;
+    }
+    #booking .section-title { color: var(--pine); margin: 0 auto; max-width: 640px; }
+    #booking .divider { margin: 1.6rem auto; }
+    #booking .section-body { margin: 0 auto 3rem; text-align: center; }
+    .booking-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 860px; margin: 0 auto 3rem;
+    }
+    .booking-card {
+      background: #fff;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .booking-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+    .bc-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .bc-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem; color: var(--pine); margin-bottom: .4rem;
+    }
+    .bc-text { font-size: .8rem; color: var(--stone); line-height: 1.6; }
+    .booking-cta-wrap {
+      display: flex; gap: 1rem; justify-content: center;
+    }
+    .btn-gold-lg {
+      padding: 1rem 2.8rem;
+      background: var(--gold);
+      color: #fff;
+      font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+      transition: background .3s, transform .2s;
+    }
+    .btn-gold-lg:hover { background: var(--pine); transform: translateY(-2px); }
+    .btn-pine-lg {
+      padding: 1rem 2.8rem;
+      background: var(--pine);
+      color: #fff;
+      font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+      transition: background .3s, transform .2s;
+    }
+    .btn-pine-lg:hover { background: var(--pine-light); transform: translateY(-2px); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      padding: 4rem;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 300;
+      color: #fff; margin-bottom: .6rem;
+    }
+    .footer-tagline { font-size: .8rem; color: rgba(255,255,255,.35); line-height: 1.7; }
+    .footer-col h4 {
+      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li {
+      font-size: .82rem; color: rgba(255,255,255,.4);
+      margin-bottom: .5rem;
+      cursor: pointer; transition: color .2s;
+    }
+    .footer-col li:hover { color: rgba(255,255,255,.75); }
+    .footer-bottom {
+      background: rgba(0,0,0,.2);
+      padding: 1.2rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: .72rem; color: rgba(255,255,255,.25); }
+    .footer-airbnb {
+      font-size: .72rem; color: rgba(255,255,255,.3);
+      display: flex; align-items: center; gap: .5rem;
+    }
+
+    /* ─── MOBILE HAMBURGER ────────────────────────────── */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      padding: .3rem;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1px;
+      background: #fff; transition: background .4s;
+    }
+    nav.scrolled .hamburger span { background: var(--charcoal); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 1.2rem 2rem; }
+      section { padding: 5rem 2rem; }
+      .hero-content { padding: 0 2rem 5rem; }
+      .hero-badges { right: 2rem; bottom: 4.5rem; }
+      .numbers-grid { grid-template-columns: repeat(2,1fr); }
+      .number-item:nth-child(2) { border-right: none; }
+      .amenities-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .amenities-img { height: 360px; }
+      .location-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .rooms-slider { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .booking-cards { grid-template-columns: 1fr 1fr; }
+      footer { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero-badges { display: none; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .g1,.g2,.g3,.g4,.g5 { grid-column: auto; grid-row: auto; }
+      .gallery-item { height: 200px; }
+      #spaces { grid-template-columns: 1fr; }
+      .space-card { height: 420px; }
+      .space-desc { max-height: 80px; }
+      #welcome-book { grid-template-columns: 1fr; }
+      .wb-image { display: none; }
+      .wb-content { padding: 3rem 2rem; }
+      .rooms-slider { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .ratings-breakdown { grid-template-columns: repeat(3,1fr); }
+      .booking-cards { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; }
+      #numbers { padding: 2rem; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="main-nav">
+    <div class="nav-logo">Clos Buisson</div>
+    <ul class="nav-links">
+      <li><a href="#gallery">Photos</a></li>
+      <li><a href="#spaces">Espaces</a></li>
+      <li><a href="#amenities">Équipements</a></li>
+      <li><a href="#location">Accès</a></li>
+      <li><a href="#reviews">Avis</a></li>
+    </ul>
+    <a href="#booking" class="nav-cta">Réserver</a>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Serre-Chevalier · Chantemerle · Saint-Chaffrey</div>
+      <h1 class="hero-title">Chalet<br><em>Clos Buisson</em></h1>
+      <p class="hero-subtitle">Un refuge d'exception au cœur des Alpes · 14 personnes · Ski aux pieds</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-primary">Réserver ce chalet</a>
+        <a href="#gallery" class="btn-outline">Découvrir</a>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <div class="badge"><span class="badge-icon">⭐</span> Note 5,0 · Coup de cœur voyageurs</div>
+      <div class="badge"><span class="badge-icon">🎿</span> Piste à 600 m · navette gratuite</div>
+      <div class="badge"><span class="badge-icon">🏔️</span> Vue imprenable sur les pistes</div>
+    </div>
+    <div class="scroll-hint">Découvrir</div>
+  </section>
+
+  <!-- ── KEY NUMBERS ── -->
+  <div id="numbers">
+    <div class="numbers-grid">
+      <div class="number-item">
+        <div class="number-value">14<span class="number-unit"> pers.</span></div>
+        <div class="number-label">Capacité maximale</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">6<span class="number-unit"> ch.</span></div>
+        <div class="number-label">Chambres doubles</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">5<span class="number-unit"> sdb</span></div>
+        <div class="number-label">Salles de bain</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">5,0<span class="number-unit">★</span></div>
+        <div class="number-label">Note voyageurs</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <div class="gallery-header">
+      <div>
+        <p class="section-eyebrow">Galerie</p>
+        <h2 class="section-title">Un cadre <em>d'exception</em></h2>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item g1" onclick="openLightbox(0)">
+        <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/aa9e6a61-5a0c-45d6-8f12-5c5c4b16c713.jpeg?im_w=1200" alt="Chalet Clos Buisson - Vue extérieure" />
+      </div>
+      <div class="gallery-item g2" onclick="openLightbox(1)">
+        <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/fc6be990-f4bf-4b61-ad15-5eb893b3cd55.jpeg?im_w=1200" alt="Chalet - Chambre" />
+      </div>
+      <div class="gallery-item g3" onclick="openLightbox(2)">
+        <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/5b2c2e9f-4909-4e88-992f-e7fa2d0d32a4.jpeg?im_w=1200" alt="Chalet - Salon" />
+      </div>
+      <div class="gallery-item g4" onclick="openLightbox(3)">
+        <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/08c8d31e-cbbd-4e9d-98c6-5e8afff72a64.jpeg?im_w=1200" alt="Chalet - Cuisine" />
+      </div>
+      <div class="gallery-item g5" onclick="openLightbox(4)">
+        <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/6bdb18e1-bf40-4915-a48f-7bea54233a67.jpeg?im_w=1200" alt="Chalet - Vue montagne" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <button class="lb-prev" onclick="lbNav(-1)">‹</button>
+    <img id="lb-img" src="" alt="" />
+    <button class="lb-next" onclick="lbNav(1)">›</button>
+  </div>
+
+  <!-- ── SPACES ── -->
+  <div id="spaces">
+    <div class="space-card">
+      <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/5b2c2e9f-4909-4e88-992f-e7fa2d0d32a4.jpeg?im_w=1200" alt="L'Églantier" />
+      <div class="space-overlay">
+        <span class="space-tag">Appartement A · 7 personnes</span>
+        <h2 class="space-name">L'Églantier</h2>
+        <p class="space-desc">Cuisine équipée, salon avec poêle à bois, terrasse plein sud. Chambre double en suite, deux chambres à lits simples, salle d'eau avec lave-linge.</p>
+        <div class="space-features">
+          <span class="sf-chip">Poêle à bois</span>
+          <span class="sf-chip">Terrasse</span>
+          <span class="sf-chip">3 chambres</span>
+          <span class="sf-chip">2 SDB</span>
+        </div>
+      </div>
+    </div>
+    <div class="space-card">
+      <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/08c8d31e-cbbd-4e9d-98c6-5e8afff72a64.jpeg?im_w=1200" alt="Le Mélèze" />
+      <div class="space-overlay">
+        <span class="space-tag">Appartement B · 7 personnes</span>
+        <h2 class="space-name">Le Mélèze</h2>
+        <p class="space-desc">Style bois rétro chaleureux, cheminée authentique, bain à remous privatif. Cuisine équipée, balcon avec vue panoramique sur les pistes.</p>
+        <div class="space-features">
+          <span class="sf-chip">Cheminée</span>
+          <span class="sf-chip">Bain à remous</span>
+          <span class="sf-chip">3 chambres</span>
+          <span class="sf-chip">2 SDB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── AMENITIES ── -->
+  <section id="amenities">
+    <div class="amenities-layout">
+      <div>
+        <p class="section-eyebrow">Équipements & Services</p>
+        <h2 class="section-title">Tout pour un séjour <em>parfait</em></h2>
+        <div class="divider"></div>
+        <p class="section-body">Le Clos Buisson a été conçu pour que vous n'ayez qu'à profiter. Chaque détail a été pensé pour allier confort alpin et standing haut de gamme.</p>
+        <div class="amenities-grid">
+          <div class="amenity-item">
+            <div class="amenity-icon">🎿</div>
+            <div class="amenity-text"><strong>Ski aux pieds</strong>Navette gratuite à 50 m, piste à 600 m, remise ski jusqu'à 25%</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">🛁</div>
+            <div class="amenity-text"><strong>Bain à remous</strong>Dans l'espace Le Mélèze, pour se détendre après le ski</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">🔥</div>
+            <div class="amenity-text"><strong>Poêle & Cheminée</strong>Ambiance chaleureuse assurée dans les deux espaces</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">🍳</div>
+            <div class="amenity-text"><strong>Cuisines complètes</strong>Équipements haut de gamme, Nespresso, cafetière filtre</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">📶</div>
+            <div class="amenity-text"><strong>Fibre optique</strong>Wi-Fi haute vitesse dans tout le chalet</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">🅿️</div>
+            <div class="amenity-text"><strong>Parking privatif</strong>Grande cour pour plusieurs véhicules, garage à skis</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">🛎️</div>
+            <div class="amenity-text"><strong>Conciergerie</strong>Chef à domicile, ménage quotidien, babysitting sur demande</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">🏓</div>
+            <div class="amenity-text"><strong>Loisirs</strong>Table de ping-pong, rangements vélos, skis & équipements</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">🛏️</div>
+            <div class="amenity-text"><strong>Linge inclus</strong>Draps et serviettes de bain fournis</div>
+          </div>
+          <div class="amenity-item">
+            <div class="amenity-icon">🔑</div>
+            <div class="amenity-text"><strong>Arrivée autonome</strong>Boîte à clé sécurisée, check-in flexible dès 16h</div>
+          </div>
+        </div>
+      </div>
+      <div class="amenities-img">
+        <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/6bdb18e1-bf40-4915-a48f-7bea54233a67.jpeg?im_w=1200" alt="Vue montagne depuis le chalet" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROOMS ── -->
+  <section id="rooms">
+    <p class="section-eyebrow">Chambres</p>
+    <h2 class="section-title" style="color:var(--cream)">6 chambres pour <em>dormir aux étoiles</em></h2>
+    <div class="divider" style="background:var(--gold-light)"></div>
+    <p class="section-body">Le chalet peut accueillir jusqu'à 14 personnes dans 6 chambres réparties entre les deux espaces, chacune pensée pour le confort et la sérénité.</p>
+    <div class="rooms-slider">
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/fc6be990-f4bf-4b61-ad15-5eb893b3cd55.jpeg?im_w=720" alt="Chambre 1" />
+        </div>
+        <div class="room-info">
+          <div class="room-name">Suite Principale — L'Églantier</div>
+          <div class="room-beds">1 lit queen-size · Balcon · Salle de bain privative</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/45cb125a-3bba-45a4-8cc0-e58c35bbae4a.jpeg?im_w=720" alt="Chambre 2" />
+        </div>
+        <div class="room-info">
+          <div class="room-name">Suite Principale — Le Mélèze</div>
+          <div class="room-beds">1 lit queen-size · Balcon · Bain à remous</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/87e870b7-4e53-40a7-a77d-dc3d7933821b.jpeg?im_w=720" alt="Chambre 3" />
+        </div>
+        <div class="room-info">
+          <div class="room-name">Chambre Famille — Lits Jumeaux</div>
+          <div class="room-beds">2 lits simples jumelables · Bureau · Rangements</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/3a38eeaa-dfda-49f1-ba71-d5135765d8e8.jpeg?im_w=720" alt="Chambre 4" />
+        </div>
+        <div class="room-info">
+          <div class="room-name">Chambre Famille — Lits Simples</div>
+          <div class="room-beds">2 lits simples 80×200 · Vue montagne</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/8f28cc8b-407f-4edf-baa5-bccb2ce1fdfe.jpeg?im_w=720" alt="Chambre 5" />
+        </div>
+        <div class="room-info">
+          <div class="room-name">Chambre Superposée — Côté Églantier</div>
+          <div class="room-beds">Lits superposés 80×200 · Rangements</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/fb4e59c9-80c4-4319-8604-305d64c77312.jpeg?im_w=720" alt="Chambre 6" />
+        </div>
+        <div class="room-info">
+          <div class="room-name">Mezzanine Cosy — Côté Mélèze</div>
+          <div class="room-beds">Lit simple · Accès par échelle · Atmosphère unique</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ── -->
+  <section id="reviews">
+    <div class="reviews-header-grid">
+      <div>
+        <p class="section-eyebrow">Avis voyageurs</p>
+        <h2 class="section-title">Ce qu'ils en <em>disent</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div style="text-align:right">
+        <div class="stars-display" style="justify-content:flex-end">
+          <span class="stars">★★★★★</span>
+          <span class="rating-num">5,0</span>
+        </div>
+        <div style="font-size:.78rem;color:var(--stone)">9 avis · Coup de cœur voyageurs Airbnb</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Un chalet absolument magnifique, idéalement situé. Les deux appartements sont très bien agencés, modernes et confortables. La vue depuis la terrasse est époustouflante. Maxime est un hôte exceptionnel, toujours disponible et de très bon conseil.</p>
+        <div class="review-author">Famille Bertrand</div>
+        <div class="review-date">Février 2025</div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Séjour parfait au ski ! Le chalet est à quelques minutes des pistes en navette, très pratique avec les enfants. Le bain à remous dans le Mélèze après une journée de ski, c'est le bonheur absolu. Nous reviendrons sans hésiter.</p>
+        <div class="review-author">Sophie & Thomas</div>
+        <div class="review-date">Janvier 2025</div>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">Nous avons privatisé les deux appartements pour un week-end entre amis (14 personnes). La configuration est parfaite, chaque groupe a son espace tout en pouvant se retrouver facilement. Équipements impeccables, hôte très réactif. 5 étoiles mérités.</p>
+        <div class="review-author">Groupe Entreprise</div>
+        <div class="review-date">Mars 2025</div>
+      </div>
+    </div>
+    <div class="ratings-breakdown">
+      <div class="rb-item">
+        <div class="rb-val">4,8</div>
+        <div class="rb-bar-wrap"><div class="rb-bar" style="width:96%"></div></div>
+        <div class="rb-label">Propreté</div>
+      </div>
+      <div class="rb-item">
+        <div class="rb-val">4,9</div>
+        <div class="rb-bar-wrap"><div class="rb-bar" style="width:98%"></div></div>
+        <div class="rb-label">Précision</div>
+      </div>
+      <div class="rb-item">
+        <div class="rb-val">5,0</div>
+        <div class="rb-bar-wrap"><div class="rb-bar" style="width:100%"></div></div>
+        <div class="rb-label">Arrivée</div>
+      </div>
+      <div class="rb-item">
+        <div class="rb-val">5,0</div>
+        <div class="rb-bar-wrap"><div class="rb-bar" style="width:100%"></div></div>
+        <div class="rb-label">Communication</div>
+      </div>
+      <div class="rb-item">
+        <div class="rb-val">5,0</div>
+        <div class="rb-bar-wrap"><div class="rb-bar" style="width:100%"></div></div>
+        <div class="rb-label">Emplacement</div>
+      </div>
+      <div class="rb-item">
+        <div class="rb-val">4,8</div>
+        <div class="rb-bar-wrap"><div class="rb-bar" style="width:96%"></div></div>
+        <div class="rb-label">Rapport Q/P</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LOCATION ── -->
+  <section id="location">
+    <div class="location-layout">
+      <div>
+        <p class="section-eyebrow">Localisation</p>
+        <h2 class="section-title">Au cœur de <em>Serre-Chevalier</em></h2>
+        <div class="divider"></div>
+        <p class="section-body">Le Chalet Clos Buisson est idéalement situé à Chantemerle, le village le plus animé de la vallée, à deux pas de toutes les commodités et des remontées mécaniques.</p>
+        <div class="distance-list">
+          <div class="dist-item">
+            <span class="dist-label"><span class="dist-icon">🎿</span> Navette gratuite (arrêt)</span>
+            <span class="dist-val">50 m</span>
+          </div>
+          <div class="dist-item">
+            <span class="dist-label"><span class="dist-icon">⛷️</span> Piste de ski</span>
+            <span class="dist-val">600 m</span>
+          </div>
+          <div class="dist-item">
+            <span class="dist-label"><span class="dist-icon">🛍️</span> Commerces & restaurants</span>
+            <span class="dist-val">200 m</span>
+          </div>
+          <div class="dist-item">
+            <span class="dist-label"><span class="dist-icon">🏔️</span> Briançon (ville)</span>
+            <span class="dist-val">6 km</span>
+          </div>
+          <div class="dist-item">
+            <span class="dist-label"><span class="dist-icon">✈️</span> Aéroport Turin</span>
+            <span class="dist-val">90 km</span>
+          </div>
+          <div class="dist-item">
+            <span class="dist-label"><span class="dist-icon">🚂</span> Gare de Briançon</span>
+            <span class="dist-val">8 km</span>
+          </div>
+        </div>
+      </div>
+      <div class="location-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2762.0!2d6.5407!3d44.9321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cd5b08a7e9c9b1%3A0x8c5f3a7e8f9e!2sChantemerle%2C+Saint-Chaffrey%2C+France!5e0!3m2!1sfr!2sfr!4v1"
+          allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WELCOME BOOK ── -->
+  <div id="welcome-book">
+    <div class="wb-image">
+      <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/aa9e6a61-5a0c-45d6-8f12-5c5c4b16c713.jpeg?im_w=1200" alt="Chalet Clos Buisson" />
+    </div>
+    <div class="wb-content">
+      <p class="section-eyebrow">Livret d'accueil</p>
+      <h2 class="section-title">Votre guide <em>de séjour</em></h2>
+      <div class="divider"></div>
+      <p class="section-body">Toutes les informations essentielles pour profiter pleinement de votre séjour au Clos Buisson.</p>
+      <div class="wb-features">
+        <div class="wb-feat">Règles de la maison & conseils d'utilisation</div>
+        <div class="wb-feat">Bonnes adresses locales & restaurants recommandés</div>
+        <div class="wb-feat">Activités à faire en été comme en hiver</div>
+        <div class="wb-feat">Contacts utiles & urgences</div>
+        <div class="wb-feat">Guide des remontées mécaniques Serre-Chevalier</div>
+      </div>
+
+      <!-- PDF upload zone -->
+      <div class="wb-upload-area" id="uploadArea"
+           ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)"
+           ondrop="handleDrop(event)" onclick="triggerFileInput()">
+        <div class="wb-upload-icon">📄</div>
+        <div class="wb-upload-text">Glissez votre livret d'accueil PDF ici</div>
+        <div class="wb-upload-sub">ou cliquez pour sélectionner un fichier PDF</div>
+        <input type="file" id="pdfInput" accept=".pdf" style="display:none" onchange="handleFileSelect(event)" />
+      </div>
+      <div id="wb-filename" class="wb-filename" style="display:none"></div>
+      <div class="wb-download-btn" id="downloadBtn" style="display:none" onclick="downloadPDF()">
+        <span>📥</span> Télécharger le livret d'accueil
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BOOKING ── -->
+  <section id="booking">
+    <p class="section-eyebrow">Réservation</p>
+    <h2 class="section-title">Prêt à vivre l'expérience <em>Clos Buisson ?</em></h2>
+    <div class="divider"></div>
+    <p class="section-body">Le chalet peut être loué en totalité (14 personnes) ou en deux espaces distincts (7 personnes chacun). Disponible à la semaine ou au week-end selon les saisons.</p>
+    <div class="booking-cards">
+      <div class="booking-card">
+        <div class="bc-icon">🏠</div>
+        <div class="bc-title">Chalet complet</div>
+        <div class="bc-text">Les deux espaces réunis · 14 personnes · Idéal pour grandes familles ou groupes d'amis</div>
+      </div>
+      <div class="booking-card">
+        <div class="bc-icon">🌿</div>
+        <div class="bc-title">L'Églantier</div>
+        <div class="bc-text">Appartement A · 7 personnes · Poêle à bois · Grande terrasse plein sud</div>
+      </div>
+      <div class="booking-card">
+        <div class="bc-icon">🌲</div>
+        <div class="bc-title">Le Mélèze</div>
+        <div class="bc-text">Appartement B · 7 personnes · Cheminée · Bain à remous privatif</div>
+      </div>
+    </div>
+    <div class="booking-cta-wrap">
+      <a href="https://www.airbnb.fr/rooms/1279067250187695533" target="_blank" class="btn-gold-lg">Voir les disponibilités</a>
+      <a href="mailto:contact@closbuisson.fr" class="btn-pine-lg">Nous contacter</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div>
+      <div class="footer-logo">Clos Buisson</div>
+      <p class="footer-tagline">Chalet haut de gamme à Chantemerle,<br>au cœur de Serre-Chevalier.<br>Un refuge alpin pour moments inoubliables.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Le chalet</h4>
+      <ul>
+        <li onclick="scrollTo('#gallery')">Galerie photos</li>
+        <li onclick="scrollTo('#spaces')">L'Églantier & Le Mélèze</li>
+        <li onclick="scrollTo('#amenities')">Équipements</li>
+        <li onclick="scrollTo('#rooms')">Chambres</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Séjour</h4>
+      <ul>
+        <li onclick="scrollTo('#location')">Localisation</li>
+        <li onclick="scrollTo('#reviews')">Avis voyageurs</li>
+        <li onclick="scrollTo('#welcome-book')">Livret d'accueil</li>
+        <li onclick="scrollTo('#booking')">Réservation</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>📧 contact@closbuisson.fr</li>
+        <li>📞 +33 (0)6 XX XX XX XX</li>
+        <li>📍 Chantemerle, Saint-Chaffrey</li>
+        <li>🏔️ Hautes-Alpes (05)</li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Chalet Clos Buisson · Tous droits réservés</span>
+    <span class="footer-airbnb">Également disponible sur <strong style="color:var(--gold-light);margin-left:.3rem">Airbnb</strong></span>
+  </div>
+
+  <script>
+    // ── NAV SCROLL ──
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── SMOOTH SCROLL ──
+    function scrollTo(target) {
+      document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        scrollTo(a.getAttribute('href'));
+      });
+    });
+
+    // ── LIGHTBOX ──
+    const images = [
+      'https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/aa9e6a61-5a0c-45d6-8f12-5c5c4b16c713.jpeg?im_w=1440',
+      'https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/fc6be990-f4bf-4b61-ad15-5eb893b3cd55.jpeg?im_w=1440',
+      'https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/5b2c2e9f-4909-4e88-992f-e7fa2d0d32a4.jpeg?im_w=1440',
+      'https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/08c8d31e-cbbd-4e9d-98c6-5e8afff72a64.jpeg?im_w=1440',
+      'https://a0.muscache.com/im/pictures/hosting/Hosting-1279067250187695533/original/6bdb18e1-bf40-4915-a48f-7bea54233a67.jpeg?im_w=1440',
+    ];
+    let lbIdx = 0;
+    function openLightbox(i) {
+      lbIdx = i;
+      document.getElementById('lb-img').src = images[i];
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e) {
+      if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    function lbNav(dir) {
+      lbIdx = (lbIdx + dir + images.length) % images.length;
+      const img = document.getElementById('lb-img');
+      img.style.opacity = 0;
+      setTimeout(() => { img.src = images[lbIdx]; img.style.opacity = 1; }, 180);
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox({ target: document.getElementById('lightbox') });
+      if (e.key === 'ArrowLeft') lbNav(-1);
+      if (e.key === 'ArrowRight') lbNav(1);
+    });
+    document.getElementById('lb-img').style.transition = 'opacity .18s';
+
+    // ── PDF WELCOME BOOK ──
+    let pdfFile = null;
+    let pdfObjectURL = null;
+
+    function triggerFileInput() {
+      document.getElementById('pdfInput').click();
+    }
+    function handleFileSelect(e) {
+      const file = e.target.files[0];
+      if (file && file.type === 'application/pdf') {
+        loadPDF(file);
+      }
+    }
+    function handleDragOver(e) {
+      e.preventDefault();
+      document.getElementById('uploadArea').classList.add('drag-over');
+    }
+    function handleDragLeave() {
+      document.getElementById('uploadArea').classList.remove('drag-over');
+    }
+    function handleDrop(e) {
+      e.preventDefault();
+      document.getElementById('uploadArea').classList.remove('drag-over');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type === 'application/pdf') {
+        loadPDF(file);
+      }
+    }
+    function loadPDF(file) {
+      pdfFile = file;
+      if (pdfObjectURL) URL.revokeObjectURL(pdfObjectURL);
+      pdfObjectURL = URL.createObjectURL(file);
+      const nameEl = document.getElementById('wb-filename');
+      nameEl.textContent = '✓ ' + file.name;
+      nameEl.style.display = 'block';
+      document.getElementById('downloadBtn').style.display = 'flex';
+      document.getElementById('uploadArea').style.borderColor = 'var(--gold)';
+    }
+    function downloadPDF() {
+      if (!pdfObjectURL) return;
+      const a = document.createElement('a');
+      a.href = pdfObjectURL;
+      a.download = pdfFile ? pdfFile.name : 'livret-accueil-clos-buisson.pdf';
+      a.click();
+    }
+
+    // ── INTERSECTION OBSERVER (fade-in) ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = 1;
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.room-card, .review-card, .amenity-item, .number-item, .booking-card').forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
